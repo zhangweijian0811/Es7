@@ -1,0 +1,78 @@
+void print_prime_between() {
+	int a, b;
+	int flag = 0;
+	printf("Insert first integer number greater than 1\n");
+	scanf("%d", &a);
+	while (a <= 1) {
+		printf("Insert first integer number greater than 1\n");
+		scanf("%d", &a);
+	}
+	printf("Insert second integer number greater than 1\n");
+	scanf("%d", &b);
+	while (b <= a) {
+		printf("Insert second integer number greater than 1\n");
+		scanf("%d", &b);
+	}
+	int n = 2;
+	int c = a;
+	while (c <= b)
+	{
+		if (c%n == 0) {
+			if (c == n) {
+				printf("%d\n", c);
+				++c;
+				n = 2;
+				flag = 1;
+			}
+			else
+			{
+				++c;
+			}
+		}
+		else {
+			++n;
+		}
+	}
+	if (flag == 0) {
+		printf("No prime number between %d and %d\n", a, b);
+	}
+}
+
+void print_pairs() {
+	int a, b;
+	printf("Insert an integer number\n");
+	scanf("%d",&a);
+	printf("Insert an integer number greater(or equal) than the previous\n");
+	scanf("%d",&b);
+	while (b<a)
+	{
+		printf("Insert an integer number greater(or equal) than the previous\n");
+		scanf("%d",&b);
+	}
+	while (a<=b)
+	{
+		if (a == b || a+1==b) {
+			printf("(%d, %d)\n", a, b);
+			break;
+		}
+		while (a<b && a+1!=b)
+		{
+			printf("(%d, %d)\n", a, b);
+			++a;
+			--b;
+		}
+	}
+}
+
+void reverse_number() {
+	int n, reverse = 0;
+	printf("Insert an integer number\n");
+	scanf("%d", &n);
+	while (n!=0)
+	{
+		reverse = reverse * 10;
+		reverse = reverse + n % 10;
+		n = n / 10;
+	}
+	printf("Reversed number is %d\n", reverse);
+}
